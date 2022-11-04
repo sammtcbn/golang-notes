@@ -1,4 +1,19 @@
 #!/bin/bash
+
+function show_append_path()
+{
+MSG="$(cat <<EOF
+Then, need to set environment variables:
+Manually append below to ~/.profile
+if [ -d "/usr/local/go/bin" ] ; then
+    export PATH=\$PATH:/usr/local/go/bin
+fi
+EOF
+)"
+
+echo "$MSG"
+}
+
 VER=1.19.3
 FN=go${VER}.linux-amd64.tar.gz
 DLPATH=https://dl.google.com/go/${FN}
@@ -14,15 +29,9 @@ rm -f --preserve-root ${FN} || exit 1
 
 mkdir -p $HOME/go || exit 1
 
-MSG="$(cat <<EOF
-Then, need to set environment variables:
-Manually append below to ~/.profile
-if [ -d "/usr/local/go/bin" ] ; then
-    export PATH=\$PATH:/usr/local/go/bin
-fi
-EOF
-)"
+# show_append_path
+sed -i '/\usr\/local\/go\/bin/d' ~/.profile
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.profile
 
-echo "$MSG"
 exit 0
 
