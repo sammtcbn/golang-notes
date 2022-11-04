@@ -1,5 +1,5 @@
 #!/bin/bash
-VER=1.19
+VER=1.19.3
 FN=go${VER}.linux-amd64.tar.gz
 DLPATH=https://dl.google.com/go/${FN}
 rm -rf --preserve-root ${FN}
