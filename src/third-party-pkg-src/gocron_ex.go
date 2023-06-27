@@ -1,8 +1,3 @@
-/*
-need to go get github.com/jasonlvhit/gocron
-Written by sammtcbn 2020.3.19
-*/
-
 package main
 
 import (
