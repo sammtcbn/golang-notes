@@ -14,7 +14,7 @@ EOF
 echo "$MSG"
 }
 
-VER=1.21.3
+VER=1.21.4
 FN=go${VER}.linux-amd64.tar.gz
 DLPATH=https://dl.google.com/go/${FN}
 rm -rf --preserve-root ${FN}
